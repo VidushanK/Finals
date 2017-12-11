@@ -3,18 +3,11 @@ import canUseDOM from "can-use-dom";
 
 
 import _ from 'lodash';
-// import { Markers } from 'react-google-maps'
 import Map from "./map.jsx";
 import Sidebar from "./sidebar.jsx";
 import stops from '../../server/db/json/stops.js';
 
 import '../scss/application.scss';
-
-// function getBusStopMarkers(stops) {
-//   return stops.map((stop) => {
-//     return createMarker(stop.lat, stop.long)
-//   });
-// }
 
 
 function createMarker(lat, lng, stopId, busName = "", defaultAnimation = 2) {
@@ -45,7 +38,7 @@ function createCircle(lat, lng) {
 }
 const geolocation = (
   canUseDOM && navigator.geolocation ?
-  navigator.geolocation : 
+  navigator.geolocation :
   ({
     getCurrentPosition(success, failure) {
       failure(`Your browser doesn't support geolocation.`);
@@ -85,8 +78,6 @@ class App extends React.Component {
           .then(response => response.json())
           .then((data) => {
             let location = this.state.markers.slice(0, 1);
-            // location.position.lat = lat
-            // location.position.lng = lng
             let stops = data.map(stop => {
               return createMarker(parseFloat(stop.lat), parseFloat(stop.lng), parseInt(stop.stop));
             })
@@ -226,7 +217,7 @@ class App extends React.Component {
           center={this.state.center}
 
         />
-        
+
         <Sidebar
           markers={this.state.markers}
         />

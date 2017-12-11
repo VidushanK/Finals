@@ -1,15 +1,19 @@
+
 "use strict";
 require('dotenv').config();
-const express = require('express');
-const bodyParser = require("body-parser");
-var request = require('request-promise');
-var cors = require('cors');
-const app = express();
-const PORT = process.env.PORT || 3000;
-const ENV = process.env.NODE_ENV || 'development';
-const knexConfig = require("./knexfile.js");
-const knex = require("knex")(knexConfig[ENV]);
-console.log('config stuff', knexConfig[ENV]);
+
+// dependencies
+const express       = require('express');
+const bodyParser    = require("body-parser");
+var request         = require('request-promise');
+var cors            = require('cors');
+const app           = express();
+const PORT          = process.env.PORT || 3000;
+const ENV           = process.env.NODE_ENV || 'development';
+const knexConfig    = require("./knexfile.js");
+const knex          = require("knex")(knexConfig[ENV]);
+
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,6 +33,7 @@ const getStopNumbers = ({ rows }) => rows.map(r => {
     lng: r.long
   }
 });
+
 const getBusCords = ({ rows }) => rows.map(r => {
   return {
     lat: r.lat,
