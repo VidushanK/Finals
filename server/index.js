@@ -5,8 +5,8 @@ require('dotenv').config();
 // dependencies
 const express       = require('express');
 const bodyParser    = require("body-parser");
-var request         = require('request-promise');
-var cors            = require('cors');
+const request       = require('request-promise');
+const cors          = require('cors');
 const app           = express();
 const PORT          = process.env.PORT || 3000;
 const ENV           = process.env.NODE_ENV || 'development';

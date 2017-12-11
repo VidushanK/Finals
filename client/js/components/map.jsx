@@ -14,7 +14,7 @@ const Map = withGoogleMap(props => (
     defaultOptions={{
       disableDefaultUI: true,
       zoomControl: true,
-      styles: require(`../js/MapStyles.json`),
+      styles: require(`./MapStyles.json`),
     }}
   >
 
@@ -36,7 +36,7 @@ const Map = withGoogleMap(props => (
 
     {props.markers.map((marker, index) => {
     let info = props.markers.map(marker => marker.info);
-      //Logic to separate busses from bus stops so they render with different icons        
+      //Logic to separate busses from bus stops so they render with different icons
       if (marker.stopId !== NaN && marker.stopId >= 1) {
         return <Marker
           {...marker}
@@ -66,7 +66,7 @@ const Map = withGoogleMap(props => (
                 <div id="bus-info-window">{marker.busName}</div>
               </InfoWindow>
             )}
-          </Marker>           
+          </Marker>
       }
     })
     }
@@ -74,4 +74,3 @@ const Map = withGoogleMap(props => (
 ));
 
 export default Map
-
