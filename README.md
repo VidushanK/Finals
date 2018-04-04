@@ -1,7 +1,11 @@
 # Sonar
 Live Demo : https://sonarbc.herokuapp.com/
 
-An original app making use of Translink's real-time API. Busses and stops are rendered in a 150 m radius around the user. Click a bus stop to view real-time scheduling information.
+Sonar uses Translink's real-time API to render busses and bus stops within a 150 meter radius. The application detects your location and shows nearby busses in real time.
+
+Sonar is simple and easy to use! Sonar comes with an interactive map with scrolling and zoom.
+By clicking on a bus stop, Sonar displays real-time information about en route bus information.
+
 
 ![](https://github.com/nikolaigauer/Sonar/blob/master/sonar.PNG)
 
